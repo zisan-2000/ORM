@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 
 const AccountForm = ({ onNext }) => {
@@ -36,7 +37,7 @@ const AccountForm = ({ onNext }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-900 p-4 md:p-8 shadow-md w-full max-w-[968px] mx-auto mt-16 md:mt-24 rounded-md ml-16">
+    <div className="bg-white dark:bg-gray-900 p-4 md:p-8 shadow-md w-full max-w-[968px] mx-auto mt-8 md:mt-16 rounded-md">
       <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 dark:text-white">
         Account Contacts
       </h2>
@@ -98,11 +99,11 @@ const AccountForm = ({ onNext }) => {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <button
             type="button"
-            className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-2 px-4 rounded border border-gray-300 dark:border-gray-600 mb-4 md:mb-0"
+            className="w-full md:w-auto bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-2 px-4 rounded border border-gray-300 dark:border-gray-600 mb-4 md:mb-0"
           >
             + Add Contact
           </button>
-          <div className="flex items-center">
+          <div className="flex items-center w-full md:w-auto">
             <input type="checkbox" id="sendAccess" className="mr-2" />
             <label
               htmlFor="sendAccess"
@@ -131,12 +132,28 @@ const AccountForm = ({ onNext }) => {
             Form is completed, go ahead!
           </p>
         )}
-        {showAlert && (
-          <div className="bg-green-100 dark:bg-green-800 border border-green-300 dark:border-green-600 text-green-600 dark:text-green-300 p-4 rounded mt-4">
-            Form is completed, Let's go next form!
-          </div>
-        )}
       </form>
+      <Modal
+        isOpen={showAlert}
+        onRequestClose={() => setShowAlert(false)}
+        className="fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-50"
+        overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+      >
+        <div className="bg-white dark:bg-gray-800 p-6 rounded shadow-lg">
+          <h3 className="text-lg font-bold mb-4 dark:text-white">
+            Form is completed!
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
+            Let's go to the next form!
+          </p>
+          <button
+            onClick={() => setShowAlert(false)}
+            className="bg-green-500 text-white py-2 px-4 rounded"
+          >
+            Close
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };

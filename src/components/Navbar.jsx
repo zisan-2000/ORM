@@ -13,11 +13,18 @@ const Navbar = ({
 
   return (
     <nav className="bg-white dark:bg-gray-800 h-[80px] md:h-[100px] w-full flex items-center shadow-md fixed top-0 left-0 px-4 md:px-8">
-      <button className="text-gray-700 md:hidden" onClick={onToggleSidebar}>
+      <button
+        className="text-gray-700 dark:text-gray-300 md:hidden p-2 rounded-full ring-2 ring-lime-600 focus:outline-none"
+        onClick={onToggleSidebar}
+      >
         &#9776;
       </button>
       <div className="flex items-center ml-4">
-        <img src={logo} alt="OCSEO Logo" className="h-16 md:h-20 w-auto" />
+        <img
+          src={logo}
+          alt="OCSEO Logo"
+          className="h-16 md:h-20 w-auto rounded-full "
+        />
       </div>
       <div className="flex-grow"></div>
 
@@ -44,7 +51,7 @@ const Navbar = ({
 
       <button
         onClick={toggleTheme}
-        className="text-gray-700 dark:text-gray-300 ring-2 ml-2 ring-lime-600"
+        className="text-gray-700 dark:text-gray-300 p-2 rounded-full ring-2 ring-lime-600 focus:outline-none ml-2"
       >
         {theme === "light" ? "🌙" : "☀️"}
       </button>

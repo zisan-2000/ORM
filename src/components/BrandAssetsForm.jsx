@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 
 const BrandAssetsForm = ({ onNext }) => {
@@ -84,12 +85,28 @@ const BrandAssetsForm = ({ onNext }) => {
             Next
           </button>
         </div>
-        {showAlert && (
-          <div className="bg-green-100 dark:bg-green-800 border border-green-300 dark:border-green-600 text-green-600 dark:text-green-300 p-4 rounded mt-4">
-            Form is completed, Let's go next form!
-          </div>
-        )}
       </form>
+      <Modal
+        isOpen={showAlert}
+        onRequestClose={() => setShowAlert(false)}
+        className="fixed inset-0 flex items-center justify-center p-4 bg-transparent"
+        overlayClassName="fixed inset-0 bg-black bg-opacity-50"
+      >
+        <div className="bg-white dark:bg-gray-800 p-6 rounded shadow-lg">
+          <h3 className="text-lg font-bold mb-4 dark:text-white">
+            Form is completed!
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
+            Let's go to the next form!
+          </p>
+          <button
+            onClick={() => setShowAlert(false)}
+            className="bg-green-500 text-white py-2 px-4 rounded"
+          >
+            Close
+          </button>
+        </div>
+      </Modal>
     </div>
   );
 };

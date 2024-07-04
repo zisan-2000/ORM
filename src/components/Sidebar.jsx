@@ -87,7 +87,7 @@ const Sidebar = ({ isOpen, activePage }) => {
         </ul>
       </div>
       <div className="mt-auto">
-        <button className="w-full text-left p-2 rounded hover:bg-white hover:text-blue-600 transition duration-300 ease-in-out flex items-center ">
+        <button className="w-full text-left p-2 rounded hover:bg-white hover:text-blue-600 transition duration-300 ease-in-out flex items-center">
           <FaPowerOff className="w-6 h-6 mr-2" />
           Logout
         </button>
