@@ -51,7 +51,7 @@ const Navbar = ({
 
       <button
         onClick={toggleTheme}
-        className="text-gray-700 dark:text-gray-300 p-2 rounded-full ring-2 ring-lime-600 focus:outline-none ml-2"
+        className="text-gray-700 dark:text-gray-300 p-2  ring-2 ring-lime-600 focus:outline-none ml-2"
       >
         {theme === "light" ? "🌙" : "☀️"}
       </button>
